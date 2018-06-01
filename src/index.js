@@ -3,72 +3,44 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 
-class Title extends Component
+class LikeButton extends Component
 {
-    handleClickOnTitle(e,text){
-        console.log(this, text)
-    }
-    render(){
-        return(
-            <h1 onClick={this.handleClickOnTitle.bind(this,' haha ')}>hello react</h1>
-        )
+  constructor(){
+      super();
+      this.state = {
+          isLiked : false,
+          name : 'eli'
+      }
+  }
 
-    }
-}
+  handleClickOnLikeButton(){
+      console.log(this.state.isLiked);
+      this.setState(
+          {
+              isLiked:!this.state.isLiked
+          }
+      );
+      console.log(this.state.isLiked);
+  }
 
 
-class Header extends Component{
 
-    render(){
-        return(
-            <div>
-              <Title/>
-                <h2>This is header</h2>
-            </div>
-        )
-    }
-}
+  render(){
+      return(
+          <button onClick={this.handleClickOnLikeButton.bind(this)}>
+              {this.state.isLiked? 'cancel':'good'}👍
+          </button>
+      )
+  }
 
-class Main extends Component
-{
-    render(){
-        return(
-            <div>
-                <h2>This is main Content</h2>
-            </div>
-        )
-    }
-}
-
-class Footer extends Component {
-    render () {
-        return (
-            <div>
-                <h2>This is footer</h2>
-            </div>
-        )
-    }
-}
-
-class Index extends Component
-{
-    render(){
-        return(
-            <div>
-                <Header/>
-                <Main/>
-                <Footer/>
-            </div>
-        )
-    }
 
 }
-
 
 ReactDOM.render(
-    <Index/>,
+    <LikeButton/>,
     document.getElementById('root')
 );
+
 
 
 
