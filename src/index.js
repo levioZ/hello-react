@@ -5,9 +5,12 @@ import './index.css'
 
 class Title extends Component
 {
+    handleClickOnTitle(e,text){
+        console.log(this, text)
+    }
     render(){
         return(
-            <h1>hello react</h1>
+            <h1 onClick={this.handleClickOnTitle.bind(this,' haha ')}>hello react</h1>
         )
 
     }
