@@ -5,6 +5,11 @@ import './index.css'
 
 class LikeButton extends Component
 {
+    static  defaultProps = {
+        likedText:'取消',
+        unlikedText:'点赞'
+    }
+
   constructor(){
       super();
       this.state = {
@@ -20,17 +25,15 @@ class LikeButton extends Component
               isLiked:!this.state.isLiked
           }
       );
-      console.log(this.state.isLiked);
+          console.log(this.state.isLiked);
   }
 
 
 
   render(){
-      const wordings = this.props.wordings || {likedText:'取消',unlikedText:'点赞'}
-
       return(
           <button onClick={this.handleClickOnLikeButton.bind(this)}>
-              {this.state.isLiked? wordings.likedText:wordings.unlikedText}👍
+              {this.state.isLiked? this.props.likedText:this.props.unlikedText}👍
           </button>
       )
   }
