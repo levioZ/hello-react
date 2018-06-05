@@ -26,11 +26,11 @@ class LikeButton extends Component
 
 
   render(){
-      const likedText = this.props.likedText || '取消'
-      const unlikedText = this.props.unlikedText || '点赞'
+      const wordings = this.props.wordings || {likedText:'取消',unlikedText:'点赞'}
+
       return(
           <button onClick={this.handleClickOnLikeButton.bind(this)}>
-              {this.state.isLiked? likedText:unlikedText}👍
+              {this.state.isLiked? wordings.likedText:wordings.unlikedText}👍
           </button>
       )
   }
@@ -44,7 +44,7 @@ class Index extends  Component
     {
         return(
             <div>
-                <LikeButton likedText='已赞' unlikedText='赞'/>
+                <LikeButton wordings={{likedText:'已赞',unlikedText:'赞'}}/>
             </div>
         )
     }
