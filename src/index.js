@@ -9,22 +9,30 @@ const users = [
     {username: 'Lucy', age: 20, gender: 'male'}
 ]
 
+class User extends Component
+{
+    render(){
+        const {user} = this.props
+        return(
+            <div>
+                <div>姓名：{user.username}</div>
+                <div>年龄：{user.age}</div>
+                <div>性别：{user.gender}</div>
+                <hr/>
+            </div>
+        )
+    }
+
+}
+
+
 class Index extends  Component
 {
     render()
     {
         return(
            <div>
-               {users.map((user)=>{
-                   return(
-                       <div>
-                           <div>姓名：{user.username}</div>
-                           <div>年龄：{user.age}</div>
-                           <div>性别：{user.gender}</div>
-                           <hr/>
-                       </div>
-                   )
-               })}
+               {users.map((user)=> <User user ={user}/>)}
            </div>
 
         )
