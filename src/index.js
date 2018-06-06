@@ -2,74 +2,32 @@ import React,{ Component } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
+const users = [
+    {username: 'Jerry', age: 21, gender: 'male'},
+    {username: 'Tome', age: 22, gender: 'male'},
+    {username: 'Lily', age: 19, gender: 'male'},
+    {username: 'Lucy', age: 20, gender: 'male'}
+]
 
-class LikeButton extends Component
-{
-    static  defaultProps = {
-        likedText:'取消',
-        unlikedText:'点赞'
-    }
-
-  constructor(){
-      super();
-      this.state = {
-          isLiked : false,
-          name : 'eli'
-      }
-  }
-
-  handleClickOnLikeButton(){
-      this.setState(
-          {
-              isLiked:!this.state.isLiked
-          }
-      );
-  }
-
-
-
-  render(){
-      return(
-          <button onClick={this.handleClickOnLikeButton.bind(this)}>
-              {this.state.isLiked? this.props.likedText:this.props.unlikedText}👍
-          </button>
-      )
-  }
-
-
-}
 
 class Index extends  Component
 {
-    constructor () {
-        super()
-        this.state = {
-            likedText: '已赞',
-            unlikedText: '赞'
-        }
-    }
-
-    handleClickOnChange () {
-        this.setState({
-            likedText: '取消',
-            unlikedText: '点赞'
-        })
-    }
-
-
     render()
     {
-        return(
-            <div>
-                <LikeButton
-                    likedText={this.state.likedText}
-                    unlikedText={this.state.unlikedText} />
+        const usersElements = []
+        for(let user of users)
+        {
+            usersElements.push(
                 <div>
-                    <button onClick={this.handleClickOnChange.bind(this)}>
-                        修改 wordings
-                    </button>
+                    <div>姓名: {user.username}</div>
+                    <div>年龄: {user.age}</div>
+                    <div>性别: {user.gender}</div>
+                    <hr/>
                 </div>
-            </div>
+            )
+        }
+        return(
+           <div>{usersElements}</div>
         )
     }
 }
