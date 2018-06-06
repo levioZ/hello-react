@@ -9,25 +9,24 @@ const users = [
     {username: 'Lucy', age: 20, gender: 'male'}
 ]
 
-
 class Index extends  Component
 {
     render()
     {
-        const usersElements = []
-        for(let user of users)
-        {
-            usersElements.push(
-                <div>
-                    <div>姓名: {user.username}</div>
-                    <div>年龄: {user.age}</div>
-                    <div>性别: {user.gender}</div>
-                    <hr/>
-                </div>
-            )
-        }
         return(
-           <div>{usersElements}</div>
+           <div>
+               {users.map((user)=>{
+                   return(
+                       <div>
+                           <div>姓名：{user.username}</div>
+                           <div>年龄：{user.age}</div>
+                           <div>性别：{user.gender}</div>
+                           <hr/>
+                       </div>
+                   )
+               })}
+           </div>
+
         )
     }
 }
