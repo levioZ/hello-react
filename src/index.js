@@ -32,7 +32,7 @@ class Index extends  Component
     {
         return(
            <div>
-               {users.map((user)=> <User user ={user}/>)}
+               {users.map((user,i)=> <User key={i} user ={user}/>)}
            </div>
 
         )
